@@ -5,10 +5,10 @@ function createProduct(req, res) {
 	const products = new Products(req.body);
 
 	try {
-		// if (req.files.miniature) {
-		// 	const imagePath = image.getFilePath(req.files.miniature);
-		// 	products.miniature = imagePath;
-		// }
+		if (req.files.miniature) {
+			const imagePath = image.getFilePath(req.files.miniature);
+			products.miniature = imagePath;
+		}
 
 		products.save((err, productStored) => {
 			if (err) {
