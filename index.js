@@ -8,18 +8,18 @@ const {
 	IP_SERVER,
 } = require("./constants");
 
-const PORT = process.env.POST || 3977;
+const port = process.env.POST || 3977;
 
 mongoose.connect(
 	`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/`,
 	(error) => {
 		if (error) throw error;
 		console.log("La conexion a la base de datos es correcta.");
-		app.listen(PORT, () => {
+		app.listen(port, () => {
 			console.log("######################");
 			console.log("####### MS API #######");
 			console.log("######################");
-			console.log(`http://${IP_SERVER}:${PORT}/api/${API_VERSION}/`);
+			console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}/`);
 		});
 	}
 );
