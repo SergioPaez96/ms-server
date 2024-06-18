@@ -11,7 +11,7 @@ const {
 const port = process.env.PORT || 3977;
 
 mongoose.connect(
-	`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/`,
+	`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/minisquadbd`,
 	(error) => {
 		if (error) throw error;
 		console.log("La conexion a la base de datos es correcta.");
