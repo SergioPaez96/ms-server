@@ -10,20 +10,21 @@ api.post(
 	"/product",
 	[md_auth.asureAuth],
 	[md_upload],
-	ProductController.createProduct,
+	ProductController.createProduct
 );
 api.get("/product", ProductController.getProducts);
+api.get("/productId/:id", ProductController.getProductsById);
 api.patch(
 	"/product/:id",
 	[md_auth.asureAuth],
 	[md_upload],
-	ProductController.updateProduct,
+	ProductController.updateProduct
 );
 api.delete(
 	"/product/:id",
 	[md_auth.asureAuth],
 	[md_upload],
-	ProductController.deleteProduct,
+	ProductController.deleteProduct
 );
 
 module.exports = api;

@@ -38,12 +38,22 @@ function getProducts(req, res) {
 	});
 }
 
+function getProductsById(req, res) {
+	const { id } = req.params;
+	Products.findById(id, (err, product) => {
+		if (err) {
+			res.status(400).send({ message: "Error al obtener el producto." });
+		} else {
+			res.status(200).send(product);
+		}
+	});
+}
+
 function updateProduct(req, res) {
 	const { id } = req.params;
 	const productData = req.body;
 
 	if (req.files.miniature) {
-		console.log(req.files.miniature);
 		const imagePath = image.getFilePath(req.files.miniature);
 		productData.miniature = imagePath;
 	}
@@ -74,4 +84,5 @@ module.exports = {
 	getProducts,
 	updateProduct,
 	deleteProduct,
+	getProductsById,
 };
